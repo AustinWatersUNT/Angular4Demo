@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Student } from '../student';
 import { StudentService } from '../student.service';
 
@@ -14,12 +15,18 @@ export class StudentComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private studentSevice: StudentService) { }
+    private router: Router,
+    private studentService: StudentService) { }
 
   ngOnInit() {
     const id = +this.route.snapshot.params['id'];
-    this.studentSevice.get(id)
+    this.studentService.get(id)
       .subscribe(student => this.student = student);
+  }
+
+  delete() {
+    this.studentService.delete(this.student.Id)
+      .subscribe(() => this.router.navigate(['/students']));
   }
 
 }

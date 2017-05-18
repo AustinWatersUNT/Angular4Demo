@@ -9,7 +9,6 @@ import { Student } from '../student';
 })
 export class StudentsComponent implements OnInit {
 
-  student: Student = new Student();
   students: Student[] = [];
 
   constructor(private studentService: StudentService) { }
@@ -19,12 +18,9 @@ export class StudentsComponent implements OnInit {
       .subscribe(students => this.students = students);
   }
 
-  clear() {
-    this.student = new Student();
+  delete(student: Student, index: number) {
+    this.studentService.delete(student.Id)
+      .subscribe(() => this.students.splice(index, 1));
   }
 
-  add() {
-    this.students.push(this.student);
-    this.clear();
-  }
 }

@@ -1,42 +1,17 @@
-<p>
-  Hi, {{student.Name}}
-</p>
+<h3>Students</h3>
 
-<form #studentForm="ngForm">
-  <div class="row">
-      <div class="col-md-4">
-      <div class="form-group">
-        <label class="control-label" for="id">Id</label>
-        <input class="form-control" type="number" name="id"
-               [(ngModel)]="student.Id" required/>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="form-group">
-        <label class="control-label" for="name">Name</label>
-        <input class="form-control" type="text" name="name"
-               [(ngModel)]="student.Name" required/>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <button class="btn btn-primary" (click)="add()" [disabled]="!studentForm.form.valid">Add</button>
-      <button class="btn btn-danger" (click)="clear()">Clear</button>
-    </div>
-  </div>
-</form>
-
-<br>
 <div class="row">
   <div class="col-md-12">
-    <label class="control-label">Students</label>
     <ul>
-      <li *ngFor="let student of students">
+      <li *ngFor="let student of students; let i = index">
         <a [routerLink]="['/students', student.Id]">
           <app-student-information [student]="student"></app-student-information>
         </a>
+        <button class="btn btn-sm btn-danger" (click)="delete(student, i)">X</button>
       </li>
     </ul>
+  </div>
+  <div class="col-md-12">
+    <button class="btn btn-primary" [routerLink]="['/add-student']">Add Student</button>
   </div>
 </div>

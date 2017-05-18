@@ -1,0 +1,63 @@
+<form #studentForm="ngForm">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="control-label" for="first">First Name</label>
+        <input class="form-control" type="text" name="first"
+              [(ngModel)]="student.FirstName" required/>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="control-label" for="last">Last Name</label>
+        <input class="form-control" type="text" name="last"
+               [(ngModel)]="student.LastName" required/>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="control-label" for="email">Email</label>
+        <input class="form-control" type="text" name="email"
+               [(ngModel)]="student.Email" required/>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="control-label" for="grade">Grade</label>
+        <input class="form-control" type="number" name="grade"
+               [(ngModel)]="student.Grade" required/>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="control-label" for="dob">Date of Birth</label>
+        <input class="form-control" type="date" name="dob"
+               [(ngModel)]="student.DateOfBirth" required/>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="control-label" for="studentId">Student Id</label>
+        <input class="form-control" type="string" name="studentId"
+               [(ngModel)]="student.StudentId" required/>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="control-label" for="gender">Gender</label>
+        <select class="form-control" [(ngModel)]="student.Gender" 
+                name="gender" required>
+          <option [ngValue]="1">Male</option>
+          <option [ngValue]="2">Female</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-primary" (click)="save()" 
+        [disabled]="!studentForm.form.valid">{{student.Id ? 'Save' : 'Add'}}</button>
+      <a class="btn btn-default" (click)="cancel()">Cancel</a>
+    </div>
+  </div>
+</form>

@@ -8,25 +8,30 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class StudentService {
 
-  private url = 'students.json';
+  private url = 'http://eduapi.apphb.com/api/students';
 
   constructor(private http: Http) { }
 
   getAll(): Observable<Student[]> {
-       return this.http.get(this.url)
-          .map((response: Response) => response.json());
+    return this.http.get(this.url)
+      .map((response: Response) => response.json() as Student[]);
   }
 
   get(id: number): Observable<Student> {
-       return this.http.get(this.url)
-          .map((response: Response) => {
-              const students = response.json();
-              for (const index in students) {
-                if (students[index].Id === id) {
-                  return students[index];
-                }
-              }
-              return new Student();
-          });
-  };
+    return this.http.get(`${this.url}/${id}`)
+      .map((response: Response) => response.json() as Student);
+  }
+
+  post(student: Student): Observable<Student> {
+    return this.http.post(this.url, student)
+      .map((response: Response) => response.json() as Student);
+  }
+
+  put(student: Student): Observable<Response> {
+    return this.http.put(`${this.url}/${student.Id}`, student);
+  }
+
+  delete(studentId: number): Observable<Response> {
+    return this.http.delete(`${this.url}/${studentId}`);
+  }
 }
