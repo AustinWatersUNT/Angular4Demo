@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StudentService } from '../student.service';
 import { Student } from '../student';
 
 @Component({
@@ -11,9 +12,11 @@ export class StudentsComponent implements OnInit {
   student: Student = new Student();
   students: Student[] = [];
 
-  constructor() { }
+  constructor(private studentService: StudentService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.students = this.studentService.getAll();
+  }
 
   clear() {
     this.student = new Student();

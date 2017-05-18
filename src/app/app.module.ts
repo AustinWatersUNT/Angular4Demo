@@ -9,6 +9,8 @@ import { AppRouting } from './app.routes';
 import { AppComponent } from './app.component';
 import { StudentsComponent } from './students/students.component';
 
+import { StudentService } from './student.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,7 @@ import { StudentsComponent } from './students/students.component';
     HttpModule
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [StudentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
