@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentsComponent implements OnInit {
 
+  name: string;
+  names: string[] = [];
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  clear() {
+    this.name = null;
+  }
+
+  add() {
+    this.names.push(this.name);
+    this.clear();
+  }
 }

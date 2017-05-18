@@ -1,7 +1,14 @@
 <div class="container">
-  <h1>
-    {{title}}
-  </h1>
 
-  <app-students></app-students>
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <a class="navbar-brand" [routerLink]="['/']">Angular 4 Training</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a [routerLink]="['/students']">Students</a></li>
+      <li><a (click)="goToStudents()">Students</a></li>
+    </ul>
+  </nav>
+
+  <router-outlet></router-outlet>
 </div>

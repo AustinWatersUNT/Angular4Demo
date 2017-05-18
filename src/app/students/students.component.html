@@ -1,3 +1,27 @@
 <p>
-  students works!
+  Hi, {{name}}
 </p>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-group">
+      <label class="control-label">Name</label>
+      <input class="form-control" type="text" [(ngModel)]="name" />
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <button class="btn btn-primary" (click)="add()">Add</button>
+    <button class="btn btn-danger" (click)="clear()">Clear</button>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <label class="control-label">Students</label>
+    <ul>
+      <li *ngFor="let name of names">{{name}}</li>
+    </ul>
+  </div>
+</div>
