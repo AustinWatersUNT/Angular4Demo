@@ -8,13 +8,15 @@ import { AppRouting } from './app.routes';
 
 import { AppComponent } from './app.component';
 import { StudentsComponent } from './students/students.component';
+import { StudentComponent } from './student/student.component';
 
 import { StudentService } from './student.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudentsComponent
+    StudentsComponent,
+    StudentComponent
   ],
   imports: [
     AppRouting,

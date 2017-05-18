@@ -19,6 +19,6 @@ export class StudentService {
         return this.students[index];
       }
     }
-    return null;
+    return new Student();
   }
 }

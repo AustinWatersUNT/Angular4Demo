@@ -25,13 +25,16 @@
       <button class="btn btn-danger" (click)="clear()">Clear</button>
     </div>
   </div>
-  <br>
-  <div class="row">
-    <div class="col-md-12">
-      <label class="control-label">Students</label>
-      <ul>
-        <li *ngFor="let student of students">{{student.Name}}</li>
-      </ul>
-    </div>
+</form>
+
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <label class="control-label">Students</label>
+    <ul>
+      <li *ngFor="let student of students">
+        <a [routerLink]="['/students', student.Id]">{{student.Name}}</a>
+      </li>
+    </ul>
   </div>
-  </form>
+</div>
