@@ -33,7 +33,9 @@
     <label class="control-label">Students</label>
     <ul>
       <li *ngFor="let student of students">
-        <a [routerLink]="['/students', student.Id]">{{student.Name}}</a>
+        <a [routerLink]="['/students', student.Id]">
+          <app-student-information [student]="student"></app-student-information>
+        </a>
       </li>
     </ul>
   </div>

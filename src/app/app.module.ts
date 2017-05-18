@@ -11,12 +11,14 @@ import { StudentsComponent } from './students/students.component';
 import { StudentComponent } from './student/student.component';
 
 import { StudentService } from './student.service';
+import { StudentInformationComponent } from './student-information/student-information.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentsComponent,
-    StudentComponent
+    StudentComponent,
+    StudentInformationComponent
   ],
   imports: [
     AppRouting,
